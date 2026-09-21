@@ -1,0 +1,56 @@
+{% block sw_cms_el_config_fk_faq %}
+<div class="sw-cms-el-config-fk-faq">
+    {% block sw_cms_el_config_fk_faq_faqs %}
+    <sw-entity-multi-id-select
+        v-model:value="faqIds"
+        :repository="faqRepository"
+        :criteria="faqCriteria"
+        label-property="title"
+        :label="$t('fk-faq-cms.element.labelFaqs')"
+        :placeholder="$t('fk-faq-cms.element.placeholderFaqs')"
+        :help-text="$t('fk-faq-cms.element.helpTextFaqs')"
+    />
+    {% endblock %}
+
+    {% block sw_cms_el_config_fk_faq_categories %}
+    <sw-entity-multi-id-select
+        v-model:value="categoryIds"
+        :repository="faqCategoryRepository"
+        :criteria="nameCriteria"
+        label-property="name"
+        :label="$t('fk-faq-cms.element.labelCategories')"
+        :placeholder="$t('fk-faq-cms.element.placeholderCategories')"
+        :help-text="$t('fk-faq-cms.element.helpTextCategories')"
+    />
+    {% endblock %}
+
+    {% block sw_cms_el_config_fk_faq_tags %}
+    <sw-entity-multi-id-select
+        v-model:value="tagIds"
+        :repository="faqTagRepository"
+        :criteria="nameCriteria"
+        label-property="name"
+        :label="$t('fk-faq-cms.element.labelTags')"
+        :placeholder="$t('fk-faq-cms.element.placeholderTags')"
+        :help-text="$t('fk-faq-cms.element.helpTextTags')"
+    />
+    {% endblock %}
+
+    {% block sw_cms_el_config_fk_faq_show_headline %}
+    <mt-switch
+        v-model="showHeadline"
+        :label="$t('fk-faq-cms.element.labelShowHeadline')"
+    />
+    {% endblock %}
+
+    {% block sw_cms_el_config_fk_faq_headline %}
+    <mt-text-field
+        v-if="showHeadline"
+        v-model="headline"
+        :label="$t('fk-faq-cms.element.labelHeadline')"
+        :placeholder="$t('fk-faq-cms.element.placeholderHeadline')"
+        :help-text="$t('fk-faq-cms.element.helpTextHeadline')"
+    />
+    {% endblock %}
+</div>
+{% endblock %}

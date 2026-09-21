@@ -1,0 +1,36 @@
+{
+  "base": "/bundles/fkfaq/administration/",
+  "entryPoints": {
+    "fk-faq": {
+      "css": [],
+      "dynamic": [
+        "/bundles/fkfaq/administration/assets/index-9R0agpxT.js",
+        "/bundles/fkfaq/administration/assets/index-D5B2AFib.js",
+        "/bundles/fkfaq/administration/assets/index-DN7A7YUw.js",
+        "/bundles/fkfaq/administration/assets/index-B5zvAwvn.js",
+        "/bundles/fkfaq/administration/assets/index-CdeAjEQ5.js",
+        "/bundles/fkfaq/administration/assets/index-Drjj0t1w.js",
+        "/bundles/fkfaq/administration/assets/index-CMsJ1det.js",
+        "/bundles/fkfaq/administration/assets/index-B0JbP4Sg.js",
+        "/bundles/fkfaq/administration/assets/index-D670xuKG.js",
+        "/bundles/fkfaq/administration/assets/index-sm450sxj.js",
+        "/bundles/fkfaq/administration/assets/index-BKBO4mOW.js",
+        "/bundles/fkfaq/administration/assets/index-DZjk0iZi.js"
+      ],
+      "js": [
+        "/bundles/fkfaq/administration/assets/fk-faq-DFQIhFtH.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

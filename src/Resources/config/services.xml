@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Entity-Definitions. Die zugehoerigen <entity>.repository-Services
+             legt Shopware beim Kompilieren automatisch an, ebenso die
+             generischen Admin-API-Routen /api/fk-faq usw. -->
+        <service id="fKuenzel\Faq\Core\Content\Faq\FaqDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\Faq\FaqTranslationDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqCategory\FaqCategoryDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqCategory\FaqCategoryTranslationDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqTag\FaqTagDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqTag\FaqTagTranslationDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqTagMapping\FaqTagMappingDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqProductAssignment\FaqProductAssignmentDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+
+        <service id="fKuenzel\Faq\Core\Content\FaqProductRule\FaqProductCategoryRuleDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Core\Content\FaqProductRule\FaqProductTagRuleDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <!-- Haengt die FAQ-Zuordnungen als Assoziationen an die Produkt-Entity,
+             damit der normale Produkt-Speichern-Vorgang sie mitschreibt. -->
+        <service id="fKuenzel\Faq\Core\Content\Product\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Services -->
+        <service id="fKuenzel\Faq\Service\ConfigService">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Service\FaqStorefrontService">
+            <argument type="service" id="fk_faq.repository"/>
+            <argument type="service" id="fk_faq_product_assignment.repository"/>
+            <argument type="service" id="fk_faq_product_category_rule.repository"/>
+            <argument type="service" id="fk_faq_product_tag_rule.repository"/>
+            <argument type="service" id="fKuenzel\Faq\Service\ConfigService"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Service\StructuredDataService">
+            <argument type="service" id="fKuenzel\Faq\Service\ConfigService"/>
+        </service>
+
+        <!-- CMS-Element -->
+        <service id="fKuenzel\Faq\Core\Content\Cms\FaqCmsElementResolver">
+            <argument type="service" id="fKuenzel\Faq\Service\FaqStorefrontService"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <!-- Phase 3: Storefront -->
+        <service id="fKuenzel\Faq\Storefront\Subscriber\ProductPageSubscriber">
+            <argument type="service" id="fKuenzel\Faq\Service\FaqStorefrontService"/>
+            <argument type="service" id="fKuenzel\Faq\Service\ConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="fKuenzel\Faq\Twig\FkFaqTwigExtension">
+            <argument type="service" id="fKuenzel\Faq\Service\FaqStorefrontService"/>
+            <argument type="service" id="fKuenzel\Faq\Service\StructuredDataService"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <!-- Store-API: rein lesend. Schreibende Operationen laufen ueber die
+             generische, ACL-geschuetzte Admin-API (siehe FaqDefinition oben). -->
+        <service id="fKuenzel\Faq\Controller\StorefrontApi\FaqController" public="true">
+            <argument type="service" id="fKuenzel\Faq\Service\FaqStorefrontService"/>
+            <argument type="service" id="fk_faq.repository"/>
+            <argument type="service" id="fk_faq_category.repository"/>
+            <argument type="service" id="fk_faq_tag.repository"/>
+            <tag name="controller.service_arguments"/>
+        </service>
+    </services>
+</container>

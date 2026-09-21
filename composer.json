@@ -1,0 +1,46 @@
+{
+  "name": "fkuenzel/faq",
+  "type": "shopware-platform-plugin",
+  "description": "FAQ Plugin für Shopware 6.7",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fabian Künzel"
+    }
+  ],
+  "version": "1.0.0",
+  "require": {
+    "php": ">=8.2",
+    "shopware/core": "~6.7.0"
+  },
+  "require-dev": {
+    "shopware/storefront": "~6.7.0",
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^11.0",
+    "symfony/var-dumper": "^7.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "fKuenzel\\Faq\\FkFaq",
+    "label": {
+      "de-DE": "FAQ Plugin",
+      "en-GB": "FAQ Plugin"
+    },
+    "description": {
+      "de-DE": "FAQs zentral verwalten, Produkten zuordnen und über ein Erlebniswelten-Element auf beliebigen Seiten ausgeben, etwa auf Kategorieseiten – manuell oder dynamisch über FAQ-Kategorie und FAQ-Tag.",
+      "en-GB": "Manage FAQs centrally, assign them to products and render them anywhere through a shopping experience element, for example on category pages – manually or dynamically by FAQ category and FAQ tag."
+    }
+  },
+  "config": {
+    "allow-plugins": false
+  },
+  "autoload": {
+    "psr-4": {
+      "fKuenzel\\Faq\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "fKuenzel\\Faq\\Tests\\": "tests/"
+    }
+  }
+}

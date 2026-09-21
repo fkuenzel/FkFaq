@@ -1,0 +1,23 @@
+{% block element_fk_faq %}
+    {% set fkFaqData = element.data %}
+
+    {% if fkFaqData and fkFaqData.hasFaqs %}
+        <div class="cms-element-{{ element.type }} fk-faq-cms-element">
+            {% block element_fk_faq_headline %}
+                {% if fkFaqData.showHeadline %}
+                    <h2 class="fk-faq__title">
+                        {{ (fkFaqData.headline ?: 'fkFaq.detail.sectionTitle'|trans)|sw_sanitize }}
+                    </h2>
+                {% endif %}
+            {% endblock %}
+
+            {% block element_fk_faq_accordion %}
+                {% sw_include '@FkFaq/storefront/component/fk-faq/faq-accordion.html.twig' with {
+                    faqs: fkFaqData.faqs,
+                    idPrefix: 'cms-' ~ element.id,
+                    showTitle: false
+                } %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

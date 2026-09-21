@@ -1,0 +1,13 @@
+{% block sw_product_detail_content_tabs_additional %}
+{% parent %}
+
+{% block fk_faq_product_detail_content_tab %}
+<sw-tabs-item
+    class="sw-product-detail__tab-fk-faq"
+    :route="{ name: 'sw.product.detail.fkFaq', params: { id: $route.params.id } }"
+    :title="$t('fk-faq-product.tab.title')"
+>
+    {{ $t('fk-faq-product.tab.title') }}
+</sw-tabs-item>
+{% endblock %}
+{% endblock %}

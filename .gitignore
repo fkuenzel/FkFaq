@@ -1,0 +1,14 @@
+/vendor/
+/node_modules/
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.local
+.phpunit.result.cache
+*.swp
+*.swo
+*~
+
+# Von Composer selbst generiert, nicht Teil eines zu installierenden Pakets
+composer.lock

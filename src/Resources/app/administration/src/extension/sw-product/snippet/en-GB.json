@@ -1,0 +1,32 @@
+{
+  "fk-faq-product": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ assignment",
+      "descriptionTextModule": "Assigns FAQs to products"
+    },
+    "tab": {
+      "title": "FAQ",
+      "cardTitle": "Manual assignment",
+      "cardSubtitle": "These FAQs are rendered on the product page.",
+      "cardTitlePreview": "Current order",
+      "labelFaqs": "Assigned FAQs",
+      "placeholderFaqs": "Select FAQ ...",
+      "helpTextOrder": "The selection order defines the order in the storefront.",
+      "emptyStateHeadline": "No FAQ assigned",
+      "emptyStateDescription": "Select FAQs above or assign an FAQ category or FAQ tag.",
+      "cardTitleRules": "Automatic assignment",
+      "cardSubtitleRules": "FAQs are added automatically based on FAQ category or FAQ tag, without selecting them one by one.",
+      "labelRuleCategories": "FAQ categories",
+      "placeholderRuleCategories": "Select FAQ category ...",
+      "helpTextRuleCategories": "All active FAQs of these categories are rendered on the product page.",
+      "labelRuleTags": "FAQ tags",
+      "placeholderRuleTags": "Select FAQ tag ...",
+      "helpTextRuleTags": "All active FAQs carrying at least one of these tags are rendered.",
+      "cardSubtitlePreview": "Manually assigned FAQs come first, followed by the automatically resolved ones.",
+      "badgeManual": "manual",
+      "badgeRule": "by rule",
+      "hintSave": "Changes on this tab are stored together with the product, using the save button in the top right corner.",
+      "notificationPreviewError": "The preview could not be loaded."
+    }
+  }
+}

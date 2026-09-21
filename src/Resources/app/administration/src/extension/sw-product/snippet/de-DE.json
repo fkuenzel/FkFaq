@@ -1,0 +1,32 @@
+{
+  "fk-faq-product": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ-Zuordnung",
+      "descriptionTextModule": "Ordnet Produkten FAQs zu"
+    },
+    "tab": {
+      "title": "FAQ",
+      "cardTitle": "Manuelle Zuordnung",
+      "cardSubtitle": "Diese FAQs werden auf der Produktseite ausgegeben.",
+      "cardTitlePreview": "Aktuelle Reihenfolge",
+      "labelFaqs": "Zugeordnete FAQs",
+      "placeholderFaqs": "FAQ auswählen ...",
+      "helpTextOrder": "Die Reihenfolge der Auswahl bestimmt die Reihenfolge in der Storefront.",
+      "emptyStateHeadline": "Keine FAQ zugeordnet",
+      "emptyStateDescription": "Wähle oben FAQs aus oder hinterlege eine FAQ-Kategorie beziehungsweise einen FAQ-Tag.",
+      "cardTitleRules": "Automatische Zuordnung",
+      "cardSubtitleRules": "FAQs werden anhand von FAQ-Kategorie oder FAQ-Tag automatisch ergänzt, ohne dass du sie einzeln auswählen musst.",
+      "labelRuleCategories": "FAQ-Kategorien",
+      "placeholderRuleCategories": "FAQ-Kategorie wählen ...",
+      "helpTextRuleCategories": "Alle aktiven FAQs dieser Kategorien werden auf der Produktseite ausgegeben.",
+      "labelRuleTags": "FAQ-Tags",
+      "placeholderRuleTags": "FAQ-Tag wählen ...",
+      "helpTextRuleTags": "Alle aktiven FAQs mit mindestens einem dieser Tags werden ausgegeben.",
+      "cardSubtitlePreview": "Manuell zugeordnete FAQs stehen vorn, danach folgen die automatisch ermittelten.",
+      "badgeManual": "manuell",
+      "badgeRule": "über Regel",
+      "hintSave": "Änderungen in diesem Reiter werden zusammen mit dem Produkt gespeichert - über den Speichern-Button oben rechts.",
+      "notificationPreviewError": "Die Vorschau konnte nicht geladen werden."
+    }
+  }
+}

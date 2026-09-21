@@ -1,0 +1,23 @@
+{
+  "fk-faq-category": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ categories",
+      "descriptionTextModule": "Categories for the FAQ management"
+    },
+    "list": {
+      "textHeadline": "FAQ categories",
+      "buttonAdd": "Add category",
+      "columnName": "Name",
+      "columnCreatedAt": "Created at",
+      "emptyStateHeadline": "No category yet",
+      "emptyStateDescription": "Categories group FAQs and enable category based assignment."
+    },
+    "detail": {
+      "textHeadlineNew": "New category",
+      "cardTitleBase": "General",
+      "labelName": "Name",
+      "placeholderName": "Enter name ...",
+      "notificationSaveSuccess": "The category has been saved."
+    }
+  }
+}

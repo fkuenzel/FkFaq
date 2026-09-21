@@ -1,0 +1,24 @@
+* text=auto
+
+*.php text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.xml text
+*.twig text
+*.js text
+*.scss text
+
+# Was nicht in ein Distributionspaket gehoert.
+# Die Regeln greifen nur, wenn das Paket aus diesem Verzeichnis gebaut wird
+# (git archive). Im Wurzelverzeichnis des Repos stehende Regeln greifen hier
+# nicht, weil die Pfade dort nicht passen.
+tests/ export-ignore
+.github/ export-ignore
+phpstan.neon export-ignore
+phpunit.xml.dist export-ignore
+.editorconfig export-ignore
+*.map export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore

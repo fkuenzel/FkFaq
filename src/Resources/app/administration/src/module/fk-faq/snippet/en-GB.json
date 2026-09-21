@@ -1,0 +1,75 @@
+{
+  "fk-faq": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ",
+      "descriptionTextModule": "Central management of frequently asked questions"
+    },
+    "list": {
+      "textHeadline": "FAQ",
+      "buttonAdd": "Add FAQ",
+      "columnTitle": "Question",
+      "columnCategory": "Category",
+      "columnActive": "Active",
+      "columnPosition": "Position",
+      "columnCreatedAt": "Created at",
+      "emptyStateHeadline": "No FAQ yet",
+      "emptyStateDescription": "Create the first question to assign it to products or categories.",
+      "columnTags": "Tags",
+      "titleSidebarItemRefresh": "Refresh"
+    },
+    "detail": {
+      "textHeadlineNew": "New FAQ",
+      "cardTitleBase": "Question and answer",
+      "cardTitleAssignment": "Classification",
+      "cardTitleSettings": "Settings",
+      "labelTitle": "Question",
+      "placeholderTitle": "Enter question ...",
+      "labelAnswer": "Answer",
+      "placeholderAnswer": "Enter answer ...",
+      "labelCategory": "Category",
+      "labelTags": "Tags",
+      "labelActive": "Active",
+      "labelPosition": "Position",
+      "helpTextPosition": "Controls the order when sorting by position.",
+      "notificationSaveSuccess": "The FAQ has been saved.",
+      "placeholderTags": "Select tag ..."
+    },
+    "filters": {
+      "categoryFilter": {
+        "label": "Category",
+        "placeholder": "Select category ..."
+      },
+      "tagsFilter": {
+        "label": "Tags",
+        "placeholder": "Select tags ..."
+      },
+      "activeFilter": {
+        "label": "Status",
+        "placeholder": "Select status ..."
+      }
+    }
+  },
+  "fk-faq-cms": {
+    "element": {
+      "label": "FAQ",
+      "defaultHeadline": "Frequently asked questions",
+      "emptyState": "No FAQ selected yet",
+      "labelFaqs": "Individual FAQs",
+      "placeholderFaqs": "Select FAQ ...",
+      "helpTextFaqs": "The order of selection determines the output order.",
+      "labelCategories": "FAQ categories",
+      "placeholderCategories": "Select FAQ category ...",
+      "helpTextCategories": "All active FAQs of these categories are added.",
+      "labelTags": "FAQ tags",
+      "placeholderTags": "Select FAQ tag ...",
+      "helpTextTags": "All active FAQs carrying at least one of these tags are added.",
+      "labelShowHeadline": "Show headline",
+      "labelHeadline": "Headline",
+      "placeholderHeadline": "Frequently asked questions",
+      "helpTextHeadline": "Leave empty to use the default text."
+    },
+    "block": {
+      "label": "FAQ"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/component/product/description.html.twig' %}
+
+{#
+    Haengt die FAQs unter Beschreibungstext und Eigenschaften, wenn in der
+    Plugin-Konfiguration "Unter der Produktbeschreibung" eingestellt ist.
+#}
+
+{% block component_product_description_content %}
+    {{ parent() }}
+
+    {% set fkFaqExtension = page.extensions.fkFaq|default(null) %}
+
+    {% if fkFaqExtension and fkFaqExtension.hasFaqs and fkFaqExtension.isUnderDescription %}
+        {% block fk_faq_under_description %}
+            <div class="product-detail-description-faq">
+                {% sw_include '@FkFaq/storefront/component/fk-faq/faq-accordion.html.twig' with {
+                    faqs: fkFaqExtension.faqs,
+                    idPrefix: 'description-' ~ product.id,
+                    showTitle: true
+                } %}
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}

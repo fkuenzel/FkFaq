@@ -1,0 +1,140 @@
+{% block fk_faq_list %}
+<sw-page class="fk-faq-list">
+
+    {% block fk_faq_list_search_bar %}
+    <template #search-bar>
+        <sw-search-bar
+            initial-search-type="fk_faq"
+            :initial-search="term"
+            @search="onSearch"
+        />
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_list_smart_bar_header %}
+    <template #smart-bar-header>
+        <h2>
+            {{ $t('fk-faq.list.textHeadline') }}
+            <span
+                v-if="!isLoading"
+                class="sw-page__smart-bar-amount"
+            >
+                ({{ total }})
+            </span>
+        </h2>
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_list_smart_bar_actions %}
+    <template #smart-bar-actions>
+        <mt-button
+            class="fk-faq-list__add-button"
+            variant="primary"
+            size="default"
+            @click="$router.push({ name: 'fk.faq.create' })"
+        >
+            {{ $t('fk-faq.list.buttonAdd') }}
+        </mt-button>
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_list_language_switch %}
+    <template #language-switch>
+        <sw-language-switch @on-change="onChangeLanguage" />
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_list_sidebar %}
+    <template #sidebar>
+        <sw-sidebar class="fk-faq-list__sidebar">
+            {% block fk_faq_list_sidebar_refresh %}
+            <sw-sidebar-item
+                icon="regular-undo"
+                :title="$t('fk-faq.list.titleSidebarItemRefresh')"
+                @click="onRefresh"
+            />
+            {% endblock %}
+
+            {% block fk_faq_list_sidebar_filter %}
+            <sw-sidebar-filter-panel
+                entity="fk_faq"
+                :store-key="storeKey"
+                :active-filter-number="activeFilterNumber"
+                :filters="listFilters"
+                :defaults="defaultFilters"
+                @criteria-changed="updateCriteria"
+            />
+            {% endblock %}
+        </sw-sidebar>
+    </template>
+    {% endblock %}
+
+    <template #content>
+        {% block fk_faq_list_content %}
+        <div class="fk-faq-list__content">
+
+            {% block fk_faq_list_empty_state %}
+            <mt-empty-state
+                v-if="!isLoading && !total"
+                :centered="true"
+                :icon="$route.meta.$module.icon"
+                :headline="$t('fk-faq.list.emptyStateHeadline')"
+                :description="$t('fk-faq.list.emptyStateDescription')"
+            />
+            {% endblock %}
+
+            {% block fk_faq_list_grid %}
+            <sw-entity-listing
+                v-else
+                class="fk-faq-list__grid"
+                detail-route="fk.faq.detail"
+                identifier="fk-faq-list"
+                :is-loading="isLoading"
+                :columns="faqColumns"
+                :repository="faqRepository"
+                :data-source="faqs"
+                :criteria-limit="limit"
+                :sort-by="currentSortBy"
+                :sort-direction="sortDirection"
+                :disable-data-fetching="true"
+                :allow-inline-edit="true"
+                @update-records="updateTotal"
+                @page-change="onPageChange"
+                @column-sort="onSortColumn"
+            >
+                {% block fk_faq_list_grid_column_tags %}
+                <template #column-tags="{ item }">
+                    <span
+                        v-if="item.tags && item.tags.length"
+                        class="fk-faq-list__tags"
+                    >
+                        <sw-label
+                            v-for="tag in item.tags"
+                            :key="tag.id"
+                            size="medium"
+                            class="fk-faq-list__tag"
+                        >
+                            {{ tag.translated ? tag.translated.name : tag.name }}
+                        </sw-label>
+                    </span>
+                </template>
+                {% endblock %}
+
+                {% block fk_faq_list_grid_column_active %}
+                <template #column-active="{ item }">
+                    <mt-icon
+                        size="12px"
+                        :color="item.active ? `#37d046` : `#de294c`"
+                        :name="item.active ? `regular-checkmark-xs` : `regular-times-s`"
+                    />
+                </template>
+                {% endblock %}
+            </sw-entity-listing>
+            {% endblock %}
+
+        </div>
+        {% endblock %}
+    </template>
+
+</sw-page>
+{% endblock %}

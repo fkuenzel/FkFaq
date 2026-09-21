@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <!--
+        Shopware behandelt Texte ohne lang-Attribut als en-GB (Default laut config.xsd).
+        Uebersetzungen werden mit lang="de-DE" ergaenzt.
+    -->
+
+    <card>
+        <title>General</title>
+        <title lang="de-DE">Allgemein</title>
+
+        <input-field type="bool">
+            <name>autoAttachToProducts</name>
+            <label>Automatically attach FAQ to product pages</label>
+            <label lang="de-DE">FAQ automatisch an Produktseiten anhängen</label>
+            <helpText>When enabled, FAQs are displayed on product pages automatically.</helpText>
+            <helpText lang="de-DE">Wenn aktiviert, werden FAQs automatisch auf Produktseiten angezeigt.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>attachmentPosition</name>
+            <label>Position of the FAQ section</label>
+            <label lang="de-DE">Position der FAQ-Sektion</label>
+            <helpText>Either as an additional tab next to description and reviews, or below the product description.</helpText>
+            <helpText lang="de-DE">Entweder als zusätzlicher Reiter neben Beschreibung und Bewertungen oder unterhalb der Produktbeschreibung.</helpText>
+            <options>
+                <option>
+                    <id>under_description</id>
+                    <name>Below the product description</name>
+                    <name lang="de-DE">Unter der Produktbeschreibung</name>
+                </option>
+                <option>
+                    <id>as_tab</id>
+                    <name>As a separate tab</name>
+                    <name lang="de-DE">Als separater Reiter</name>
+                </option>
+            </options>
+            <defaultValue>as_tab</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Schema &amp; SEO</title>
+        <title lang="de-DE">Schema &amp; SEO</title>
+
+        <input-field type="bool">
+            <name>generateSchema</name>
+            <label>Generate FAQPage schema</label>
+            <label lang="de-DE">FAQPage-Schema generieren</label>
+            <helpText>Generates schema.org/FAQPage JSON-LD for the rendered FAQs. Off by default: since August 2023 Google shows FAQ rich results for government and health sites only. Other search engines still evaluate the markup.</helpText>
+            <helpText lang="de-DE">Erzeugt JSON-LD nach schema.org/FAQPage für die ausgegebenen FAQs. Standardmäßig aus: Google zeigt FAQ-Rich-Results seit August 2023 nur noch für Behörden- und Gesundheitsseiten. Andere Suchmaschinen werten das Markup weiterhin aus.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Display</title>
+        <title lang="de-DE">Darstellung</title>
+
+        <input-field type="single-select">
+            <name>defaultSortOrder</name>
+            <label>Default sort order</label>
+            <label lang="de-DE">Standard-Sortierung</label>
+            <helpText>Sort order of the FAQs in the storefront.</helpText>
+            <helpText lang="de-DE">Sortierreihenfolge der FAQs in der Storefront.</helpText>
+            <options>
+                <option>
+                    <id>alphabetical_asc</id>
+                    <name>Alphabetical (A-Z)</name>
+                    <name lang="de-DE">Alphabetisch (A–Z)</name>
+                </option>
+                <option>
+                    <id>alphabetical_desc</id>
+                    <name>Alphabetical (Z-A)</name>
+                    <name lang="de-DE">Alphabetisch (Z–A)</name>
+                </option>
+                <option>
+                    <id>created_asc</id>
+                    <name>Creation date (oldest first)</name>
+                    <name lang="de-DE">Erstellungsdatum (älteste zuerst)</name>
+                </option>
+                <option>
+                    <id>created_desc</id>
+                    <name>Creation date (newest first)</name>
+                    <name lang="de-DE">Erstellungsdatum (neueste zuerst)</name>
+                </option>
+            </options>
+            <defaultValue>alphabetical_asc</defaultValue>
+        </input-field>
+    </card>
+</config>

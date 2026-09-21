@@ -1,0 +1,23 @@
+{
+  "fk-faq-tag": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ-Tags",
+      "descriptionTextModule": "Tags für die FAQ-Verwaltung"
+    },
+    "list": {
+      "textHeadline": "FAQ-Tags",
+      "buttonAdd": "Tag hinzufügen",
+      "columnName": "Name",
+      "columnCreatedAt": "Erstellt am",
+      "emptyStateHeadline": "Noch kein Tag vorhanden",
+      "emptyStateDescription": "Tags erlauben die tagbasierte Zuordnung von FAQs."
+    },
+    "detail": {
+      "textHeadlineNew": "Neuer Tag",
+      "cardTitleBase": "Allgemein",
+      "labelName": "Name",
+      "placeholderName": "Name eingeben ...",
+      "notificationSaveSuccess": "Der Tag wurde gespeichert."
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{% block sw_cms_el_fk_faq %}
+<div class="sw-cms-el-fk-faq">
+    <sw-loader v-if="isLoading" />
+
+    <template v-else>
+        {% block sw_cms_el_fk_faq_empty %}
+        <div
+            v-if="faqs.length === 0"
+            class="sw-cms-el-fk-faq__empty"
+        >
+            <mt-icon
+                name="regular-comments"
+                size="24"
+            />
+            <p>{{ $t('fk-faq-cms.element.emptyState') }}</p>
+        </div>
+        {% endblock %}
+
+        {% block sw_cms_el_fk_faq_list %}
+        <template v-else>
+            <h2
+                v-if="showHeadline"
+                class="sw-cms-el-fk-faq__headline"
+            >
+                {{ headline }}
+            </h2>
+
+            <ul class="sw-cms-el-fk-faq__items">
+                <li
+                    v-for="faq in faqs"
+                    :key="faq.id"
+                    class="sw-cms-el-fk-faq__item"
+                >
+                    <mt-icon
+                        name="regular-chevron-right-xs"
+                        size="12"
+                    />
+                    <span>{{ faq.translated.title || faq.title }}</span>
+                </li>
+            </ul>
+        </template>
+        {% endblock %}
+    </template>
+</div>
+{% endblock %}

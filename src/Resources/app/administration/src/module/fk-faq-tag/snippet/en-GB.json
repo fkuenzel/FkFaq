@@ -1,0 +1,23 @@
+{
+  "fk-faq-tag": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ tags",
+      "descriptionTextModule": "Tags for the FAQ management"
+    },
+    "list": {
+      "textHeadline": "FAQ tags",
+      "buttonAdd": "Add tag",
+      "columnName": "Name",
+      "columnCreatedAt": "Created at",
+      "emptyStateHeadline": "No tag yet",
+      "emptyStateDescription": "Tags enable tag based assignment of FAQs."
+    },
+    "detail": {
+      "textHeadlineNew": "New tag",
+      "cardTitleBase": "General",
+      "labelName": "Name",
+      "placeholderName": "Enter name ...",
+      "notificationSaveSuccess": "The tag has been saved."
+    }
+  }
+}

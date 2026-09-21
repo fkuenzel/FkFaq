@@ -1,0 +1,71 @@
+{#
+    FAQ-Akkordeon.
+
+    Erwartet:
+      faqs      FaqCollection
+      idPrefix  eindeutiges Praefix fuer die DOM-IDs (mehrfach pro Seite moeglich)
+      showTitle Ueberschrift ausgeben (im Reiter unnoetig)
+
+    Bewusst ohne eigenes JavaScript: das Auf- und Zuklappen uebernimmt die
+    Collapse-Komponente von Bootstrap, die die Storefront ohnehin ausliefert.
+    Damit braucht der Betreiber keinen Storefront-JS-Build.
+#}
+
+{% block fk_faq_accordion %}
+    {% set fkFaqItems = faqs|default(null) %}
+
+    {% if fkFaqItems and fkFaqItems.count > 0 %}
+        {% set fkFaqAccordionId = 'fk-faq-accordion-' ~ (idPrefix|default('detail')) %}
+
+        <div class="fk-faq">
+            {% block fk_faq_accordion_title %}
+                {% if showTitle|default(false) %}
+                    <h2 class="fk-faq__title">
+                        {{ 'fkFaq.detail.sectionTitle'|trans|sw_sanitize }}
+                    </h2>
+                {% endif %}
+            {% endblock %}
+
+            {% block fk_faq_accordion_items %}
+                <div class="accordion fk-faq__accordion"
+                     id="{{ fkFaqAccordionId }}">
+                    {% for faq in fkFaqItems %}
+                        {% set fkFaqItemId = fkFaqAccordionId ~ '-' ~ faq.id %}
+
+                        {% block fk_faq_accordion_item %}
+                            <div class="accordion-item fk-faq__item">
+                                {% block fk_faq_accordion_item_question %}
+                                    <h3 class="accordion-header fk-faq__question"
+                                        id="{{ fkFaqItemId }}-heading">
+                                        <button class="accordion-button collapsed"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#{{ fkFaqItemId }}-body"
+                                                aria-expanded="false"
+                                                aria-controls="{{ fkFaqItemId }}-body">
+                                            {{ faq.translated.title|default(faq.title)|sw_sanitize }}
+                                        </button>
+                                    </h3>
+                                {% endblock %}
+
+                                {% block fk_faq_accordion_item_answer %}
+                                    <div id="{{ fkFaqItemId }}-body"
+                                         class="accordion-collapse collapse"
+                                         aria-labelledby="{{ fkFaqItemId }}-heading">
+                                        <div class="accordion-body fk-faq__answer">
+                                            {{ faq.translated.answer|default(faq.answer)|sw_sanitize }}
+                                        </div>
+                                    </div>
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    {% endfor %}
+                </div>
+            {% endblock %}
+
+            {% block fk_faq_accordion_schema %}
+                {{ fk_faq_schema_tag(fkFaqItems) }}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

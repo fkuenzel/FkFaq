@@ -1,0 +1,23 @@
+{
+  "fk-faq-category": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ-Kategorien",
+      "descriptionTextModule": "Kategorien für die FAQ-Verwaltung"
+    },
+    "list": {
+      "textHeadline": "FAQ-Kategorien",
+      "buttonAdd": "Kategorie hinzufügen",
+      "columnName": "Name",
+      "columnCreatedAt": "Erstellt am",
+      "emptyStateHeadline": "Noch keine Kategorie vorhanden",
+      "emptyStateDescription": "Kategorien bündeln FAQs und erlauben die kategoriebasierte Zuordnung."
+    },
+    "detail": {
+      "textHeadlineNew": "Neue Kategorie",
+      "cardTitleBase": "Allgemein",
+      "labelName": "Name",
+      "placeholderName": "Name eingeben ...",
+      "notificationSaveSuccess": "Die Kategorie wurde gespeichert."
+    }
+  }
+}

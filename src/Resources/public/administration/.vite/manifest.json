@@ -1,0 +1,106 @@
+{
+  "extension/sw-product/view/fk-faq-product-tab/index.js": {
+    "file": "assets/index-CMsJ1det.js",
+    "name": "index",
+    "src": "extension/sw-product/view/fk-faq-product-tab/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-XwOAw7hJ.css"
+    ]
+  },
+  "main.js": {
+    "file": "assets/fk-faq-DFQIhFtH.js",
+    "name": "fk-faq",
+    "src": "main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "module/fk-faq/page/fk-faq-list/index.js",
+      "module/fk-faq/page/fk-faq-detail/index.js",
+      "module/fk-faq-category/page/fk-faq-category-list/index.js",
+      "module/fk-faq-category/page/fk-faq-category-detail/index.js",
+      "module/fk-faq-tag/page/fk-faq-tag-list/index.js",
+      "module/fk-faq-tag/page/fk-faq-tag-detail/index.js",
+      "extension/sw-product/view/fk-faq-product-tab/index.js",
+      "module/sw-cms/elements/fk-faq/component/index.js",
+      "module/sw-cms/elements/fk-faq/config/index.js",
+      "module/sw-cms/elements/fk-faq/preview/index.js",
+      "module/sw-cms/blocks/fk-faq/component/index.js",
+      "module/sw-cms/blocks/fk-faq/preview/index.js"
+    ]
+  },
+  "module/fk-faq-category/page/fk-faq-category-detail/index.js": {
+    "file": "assets/index-B5zvAwvn.js",
+    "name": "index",
+    "src": "module/fk-faq-category/page/fk-faq-category-detail/index.js",
+    "isDynamicEntry": true
+  },
+  "module/fk-faq-category/page/fk-faq-category-list/index.js": {
+    "file": "assets/index-DN7A7YUw.js",
+    "name": "index",
+    "src": "module/fk-faq-category/page/fk-faq-category-list/index.js",
+    "isDynamicEntry": true
+  },
+  "module/fk-faq-tag/page/fk-faq-tag-detail/index.js": {
+    "file": "assets/index-Drjj0t1w.js",
+    "name": "index",
+    "src": "module/fk-faq-tag/page/fk-faq-tag-detail/index.js",
+    "isDynamicEntry": true
+  },
+  "module/fk-faq-tag/page/fk-faq-tag-list/index.js": {
+    "file": "assets/index-CdeAjEQ5.js",
+    "name": "index",
+    "src": "module/fk-faq-tag/page/fk-faq-tag-list/index.js",
+    "isDynamicEntry": true
+  },
+  "module/fk-faq/page/fk-faq-detail/index.js": {
+    "file": "assets/index-D5B2AFib.js",
+    "name": "index",
+    "src": "module/fk-faq/page/fk-faq-detail/index.js",
+    "isDynamicEntry": true
+  },
+  "module/fk-faq/page/fk-faq-list/index.js": {
+    "file": "assets/index-9R0agpxT.js",
+    "name": "index",
+    "src": "module/fk-faq/page/fk-faq-list/index.js",
+    "isDynamicEntry": true
+  },
+  "module/sw-cms/blocks/fk-faq/component/index.js": {
+    "file": "assets/index-BKBO4mOW.js",
+    "name": "index",
+    "src": "module/sw-cms/blocks/fk-faq/component/index.js",
+    "isDynamicEntry": true
+  },
+  "module/sw-cms/blocks/fk-faq/preview/index.js": {
+    "file": "assets/index-DZjk0iZi.js",
+    "name": "index",
+    "src": "module/sw-cms/blocks/fk-faq/preview/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-DFGhlz2D.css"
+    ]
+  },
+  "module/sw-cms/elements/fk-faq/component/index.js": {
+    "file": "assets/index-B0JbP4Sg.js",
+    "name": "index",
+    "src": "module/sw-cms/elements/fk-faq/component/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-DVVEkDBX.css"
+    ]
+  },
+  "module/sw-cms/elements/fk-faq/config/index.js": {
+    "file": "assets/index-D670xuKG.js",
+    "name": "index",
+    "src": "module/sw-cms/elements/fk-faq/config/index.js",
+    "isDynamicEntry": true
+  },
+  "module/sw-cms/elements/fk-faq/preview/index.js": {
+    "file": "assets/index-sm450sxj.js",
+    "name": "index",
+    "src": "module/sw-cms/elements/fk-faq/preview/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-CM2ANSfu.css"
+    ]
+  }
+}

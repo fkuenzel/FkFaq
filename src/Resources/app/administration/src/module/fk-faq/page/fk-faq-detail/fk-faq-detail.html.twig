@@ -1,0 +1,139 @@
+{% block fk_faq_detail %}
+<sw-page class="fk-faq-detail">
+
+    {% block fk_faq_detail_header %}
+    <template #smart-bar-header>
+        <h2 v-if="faq">
+            {{ faq.title || $t('fk-faq.detail.textHeadlineNew') }}
+        </h2>
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_detail_language_switch %}
+    <template #language-switch>
+        <sw-language-switch
+            :save-changes-function="saveOnLanguageChange"
+            :abort-change-function="abortOnLanguageChange"
+            @on-change="onChangeLanguage"
+        />
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_detail_actions %}
+    <template #smart-bar-actions>
+        {% block fk_faq_detail_actions_cancel %}
+        <mt-button
+            variant="secondary"
+            size="default"
+            @click="onCancel"
+        >
+            {{ $t('global.default.cancel') }}
+        </mt-button>
+        {% endblock %}
+
+        {% block fk_faq_detail_actions_save %}
+        <sw-button-process
+            v-tooltip.bottom="tooltipSave"
+            class="fk-faq-detail__save-action"
+            variant="primary"
+            :is-loading="isLoading"
+            :process-success="isSaveSuccessful"
+            :disabled="isLoading"
+            @process-finish="saveFinish"
+            @click="onSave"
+        >
+            {{ $t('global.default.save') }}
+        </sw-button-process>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+    <template #content>
+        {% block fk_faq_detail_content %}
+        <sw-card-view>
+            <sw-skeleton v-if="isLoading" />
+
+            <template v-else-if="faq">
+                {% block fk_faq_detail_content_card_base %}
+                <mt-card
+                    position-identifier="fk-faq-detail-base"
+                    :title="$t('fk-faq.detail.cardTitleBase')"
+                >
+                    {% block fk_faq_detail_content_field_title %}
+                    <mt-text-field
+                        v-model="faq.title"
+                        required
+                        :label="$t('fk-faq.detail.labelTitle')"
+                        :placeholder="$t('fk-faq.detail.placeholderTitle')"
+                    />
+                    {% endblock %}
+
+                    {% block fk_faq_detail_content_field_answer %}
+                    <sw-text-editor
+                        v-model:value="faq.answer"
+                        sanitize-input
+                        :label="$t('fk-faq.detail.labelAnswer')"
+                        :placeholder="$t('fk-faq.detail.placeholderAnswer')"
+                    />
+                    {% endblock %}
+                </mt-card>
+                {% endblock %}
+
+                {% block fk_faq_detail_content_card_assignment %}
+                <mt-card
+                    position-identifier="fk-faq-detail-assignment"
+                    :title="$t('fk-faq.detail.cardTitleAssignment')"
+                >
+                    {% block fk_faq_detail_content_field_category %}
+                    <sw-entity-single-select
+                        v-model:value="faq.categoryId"
+                        entity="fk_faq_category"
+                        label-property="name"
+                        show-clearable-button
+                        :label="$t('fk-faq.detail.labelCategory')"
+                    />
+                    {% endblock %}
+
+                    {% block fk_faq_detail_content_field_tags %}
+                    <sw-entity-many-to-many-select
+                        v-if="faq.tags"
+                        v-model:entity-collection="faq.tags"
+                        :local-mode="faq.isNew()"
+                        label-property="name"
+                        :label="$t('fk-faq.detail.labelTags')"
+                        :placeholder="$t('fk-faq.detail.placeholderTags')"
+                    />
+                    {% endblock %}
+                </mt-card>
+                {% endblock %}
+
+                {% block fk_faq_detail_content_card_settings %}
+                <mt-card
+                    position-identifier="fk-faq-detail-settings"
+                    :title="$t('fk-faq.detail.cardTitleSettings')"
+                >
+                    {% block fk_faq_detail_content_field_active %}
+                    <mt-switch
+                        v-model="faq.active"
+                        :label="$t('fk-faq.detail.labelActive')"
+                    />
+                    {% endblock %}
+
+                    {% block fk_faq_detail_content_field_position %}
+                    <mt-number-field
+                        v-model="faq.position"
+                        number-type="int"
+                        :step="1"
+                        :label="$t('fk-faq.detail.labelPosition')"
+                        :help-text="$t('fk-faq.detail.helpTextPosition')"
+                    />
+                    {% endblock %}
+                </mt-card>
+                {% endblock %}
+            </template>
+        </sw-card-view>
+        {% endblock %}
+    </template>
+
+</sw-page>
+{% endblock %}

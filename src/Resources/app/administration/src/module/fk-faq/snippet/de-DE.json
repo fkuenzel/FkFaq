@@ -1,0 +1,75 @@
+{
+  "fk-faq": {
+    "general": {
+      "mainMenuItemGeneral": "FAQ",
+      "descriptionTextModule": "Zentrale Verwaltung häufig gestellter Fragen"
+    },
+    "list": {
+      "textHeadline": "FAQ",
+      "buttonAdd": "FAQ hinzufügen",
+      "columnTitle": "Frage",
+      "columnCategory": "Kategorie",
+      "columnActive": "Aktiv",
+      "columnPosition": "Position",
+      "columnCreatedAt": "Erstellt am",
+      "emptyStateHeadline": "Noch keine FAQ vorhanden",
+      "emptyStateDescription": "Lege die erste Frage an, um sie Produkten oder Kategorien zuzuordnen.",
+      "columnTags": "Tags",
+      "titleSidebarItemRefresh": "Aktualisieren"
+    },
+    "detail": {
+      "textHeadlineNew": "Neue FAQ",
+      "cardTitleBase": "Frage und Antwort",
+      "cardTitleAssignment": "Einordnung",
+      "cardTitleSettings": "Einstellungen",
+      "labelTitle": "Frage",
+      "placeholderTitle": "Frage eingeben ...",
+      "labelAnswer": "Antwort",
+      "placeholderAnswer": "Antwort eingeben ...",
+      "labelCategory": "Kategorie",
+      "labelTags": "Tags",
+      "labelActive": "Aktiv",
+      "labelPosition": "Position",
+      "helpTextPosition": "Steuert die Reihenfolge, wenn nach Position sortiert wird.",
+      "notificationSaveSuccess": "Die FAQ wurde gespeichert.",
+      "placeholderTags": "Tag auswählen ..."
+    },
+    "filters": {
+      "categoryFilter": {
+        "label": "Kategorie",
+        "placeholder": "Kategorie wählen ..."
+      },
+      "tagsFilter": {
+        "label": "Tags",
+        "placeholder": "Tags wählen ..."
+      },
+      "activeFilter": {
+        "label": "Status",
+        "placeholder": "Status wählen ..."
+      }
+    }
+  },
+  "fk-faq-cms": {
+    "element": {
+      "label": "FAQ",
+      "defaultHeadline": "Häufig gestellte Fragen",
+      "emptyState": "Noch keine FAQ ausgewählt",
+      "labelFaqs": "Einzelne FAQs",
+      "placeholderFaqs": "FAQ auswählen ...",
+      "helpTextFaqs": "Die Reihenfolge der Auswahl bestimmt die Reihenfolge in der Ausgabe.",
+      "labelCategories": "FAQ-Kategorien",
+      "placeholderCategories": "FAQ-Kategorie wählen ...",
+      "helpTextCategories": "Alle aktiven FAQs dieser Kategorien werden ergänzt.",
+      "labelTags": "FAQ-Tags",
+      "placeholderTags": "FAQ-Tag wählen ...",
+      "helpTextTags": "Alle aktiven FAQs mit mindestens einem dieser Tags werden ergänzt.",
+      "labelShowHeadline": "Überschrift anzeigen",
+      "labelHeadline": "Überschrift",
+      "placeholderHeadline": "Häufig gestellte Fragen",
+      "helpTextHeadline": "Leer lassen, um den Standardtext zu verwenden."
+    },
+    "block": {
+      "label": "FAQ"
+    }
+  }
+}

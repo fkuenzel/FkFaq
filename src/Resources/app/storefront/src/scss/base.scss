@@ -1,0 +1,53 @@
+/*
+ * Storefront-Styles des FAQ-Plugins.
+ *
+ * Diese Datei wird von Shopware automatisch in die Theme-Kompilierung
+ * aufgenommen (Resources/app/storefront/src/scss/base.scss). Ein eigener
+ * Storefront-Build ist nicht noetig, bin/console theme:compile genuegt.
+ *
+ * Bewusst zurueckhaltend: das Akkordeon nutzt die Bootstrap-Komponente des
+ * Themes, damit es Farben, Abstaende und Typografie des jeweiligen Themes
+ * uebernimmt. Ergaenzt wird nur, was Bootstrap offen laesst.
+ */
+
+.fk-faq {
+    margin-top: 2rem;
+
+    &__title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    &__accordion {
+        --bs-accordion-btn-focus-box-shadow: none;
+    }
+
+    &__question {
+        margin-bottom: 0;
+
+        .accordion-button {
+            font-weight: 600;
+        }
+    }
+
+    &__answer {
+        > *:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 1.25rem;
+        }
+    }
+}
+
+.product-detail-description-faq {
+    margin-top: 2rem;
+}
+
+.fk-faq-tab-pane {
+    .fk-faq {
+        margin-top: 0;
+    }
+}

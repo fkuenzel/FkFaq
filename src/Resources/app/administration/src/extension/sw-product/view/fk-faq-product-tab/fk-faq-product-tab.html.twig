@@ -1,0 +1,125 @@
+{% block fk_faq_product_tab %}
+<div class="fk-faq-product-tab">
+    <sw-skeleton v-if="isLoading || !isReady" />
+
+    <template v-else>
+        {% block fk_faq_product_tab_hint %}
+        <mt-banner variant="info">
+            {{ $t('fk-faq-product.tab.hintSave') }}
+        </mt-banner>
+        {% endblock %}
+
+        {% block fk_faq_product_tab_card_manual %}
+        <mt-card
+            position-identifier="fk-faq-product-tab-manual"
+            :title="$t('fk-faq-product.tab.cardTitle')"
+            :subtitle="$t('fk-faq-product.tab.cardSubtitle')"
+        >
+            {% block fk_faq_product_tab_select %}
+            <sw-entity-multi-id-select
+                v-model:value="faqIds"
+                :repository="faqRepository"
+                :criteria="faqSelectCriteria"
+                :disabled="!allowEdit"
+                label-property="title"
+                :label="$t('fk-faq-product.tab.labelFaqs')"
+                :placeholder="$t('fk-faq-product.tab.placeholderFaqs')"
+                :help-text="$t('fk-faq-product.tab.helpTextOrder')"
+            />
+            {% endblock %}
+        </mt-card>
+        {% endblock %}
+
+        {% block fk_faq_product_tab_card_rules %}
+        <mt-card
+            position-identifier="fk-faq-product-tab-rules"
+            :title="$t('fk-faq-product.tab.cardTitleRules')"
+            :subtitle="$t('fk-faq-product.tab.cardSubtitleRules')"
+        >
+            {% block fk_faq_product_tab_rule_categories %}
+            <sw-entity-multi-id-select
+                v-model:value="categoryIds"
+                :repository="faqCategoryRepository"
+                :criteria="nameSelectCriteria"
+                :disabled="!allowEdit"
+                label-property="name"
+                :label="$t('fk-faq-product.tab.labelRuleCategories')"
+                :placeholder="$t('fk-faq-product.tab.placeholderRuleCategories')"
+                :help-text="$t('fk-faq-product.tab.helpTextRuleCategories')"
+            />
+            {% endblock %}
+
+            {% block fk_faq_product_tab_rule_tags %}
+            <sw-entity-multi-id-select
+                v-model:value="tagIds"
+                :repository="faqTagRepository"
+                :criteria="nameSelectCriteria"
+                :disabled="!allowEdit"
+                label-property="name"
+                :label="$t('fk-faq-product.tab.labelRuleTags')"
+                :placeholder="$t('fk-faq-product.tab.placeholderRuleTags')"
+                :help-text="$t('fk-faq-product.tab.helpTextRuleTags')"
+            />
+            {% endblock %}
+        </mt-card>
+        {% endblock %}
+
+        {% block fk_faq_product_tab_card_preview %}
+        <mt-card
+            position-identifier="fk-faq-product-tab-preview"
+            :title="$t('fk-faq-product.tab.cardTitlePreview')"
+            :subtitle="$t('fk-faq-product.tab.cardSubtitlePreview')"
+            :is-loading="isLoadingPreview"
+        >
+            <mt-empty-state
+                v-if="manualFaqs.length === 0 && ruleFaqs.length === 0"
+                icon="regular-comments"
+                :headline="$t('fk-faq-product.tab.emptyStateHeadline')"
+                :description="$t('fk-faq-product.tab.emptyStateDescription')"
+            />
+
+            <template v-else>
+                {% block fk_faq_product_tab_preview_manual %}
+                <ol
+                    v-if="manualFaqs.length"
+                    class="fk-faq-product-tab__list"
+                >
+                    <li
+                        v-for="faq in manualFaqs"
+                        :key="faq.id"
+                        class="fk-faq-product-tab__list-item"
+                    >
+                        <router-link :to="{ name: 'fk.faq.detail', params: { id: faq.id } }">
+                            {{ faq.title }}
+                        </router-link>
+                        <sw-label size="small">{{ $t('fk-faq-product.tab.badgeManual') }}</sw-label>
+                    </li>
+                </ol>
+                {% endblock %}
+
+                {% block fk_faq_product_tab_preview_rules %}
+                <ol
+                    v-if="ruleFaqs.length"
+                    class="fk-faq-product-tab__list"
+                >
+                    <li
+                        v-for="faq in ruleFaqs"
+                        :key="faq.id"
+                        class="fk-faq-product-tab__list-item"
+                    >
+                        <router-link :to="{ name: 'fk.faq.detail', params: { id: faq.id } }">
+                            {{ faq.title }}
+                        </router-link>
+                        <sw-label
+                            size="small"
+                            variant="info"
+                        >{{ $t('fk-faq-product.tab.badgeRule') }}</sw-label>
+                    </li>
+                </ol>
+                {% endblock %}
+            </template>
+        </mt-card>
+        {% endblock %}
+    </template>
+</div>
+{% endblock %}

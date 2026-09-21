@@ -1,0 +1,80 @@
+{% block fk_faq_tag_list %}
+<sw-page class="fk-faq-tag-list">
+
+    {% block fk_faq_tag_list_search_bar %}
+    <template #search-bar>
+        <sw-search-bar
+            initial-search-type="fk_faq_tag"
+            :initial-search="term"
+            @search="onSearch"
+        />
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_tag_list_smart_bar_header %}
+    <template #smart-bar-header>
+        <h2>
+            {{ $t('fk-faq-tag.list.textHeadline') }}
+            <span
+                v-if="!isLoading"
+                class="sw-page__smart-bar-amount"
+            >
+                ({{ total }})
+            </span>
+        </h2>
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_tag_list_smart_bar_actions %}
+    <template #smart-bar-actions>
+        <mt-button
+            variant="primary"
+            size="default"
+            @click="$router.push({ name: 'fk.faq.tag.create' })"
+        >
+            {{ $t('fk-faq-tag.list.buttonAdd') }}
+        </mt-button>
+    </template>
+    {% endblock %}
+
+    {% block fk_faq_tag_list_language_switch %}
+    <template #language-switch>
+        <sw-language-switch @on-change="onChangeLanguage" />
+    </template>
+    {% endblock %}
+
+    <template #content>
+        {% block fk_faq_tag_list_content %}
+        <div class="fk-faq-tag-list__content">
+            <mt-empty-state
+                v-if="!isLoading && !total"
+                :centered="true"
+                :icon="$route.meta.$module.icon"
+                :headline="$t('fk-faq-tag.list.emptyStateHeadline')"
+                :description="$t('fk-faq-tag.list.emptyStateDescription')"
+            />
+
+            <sw-entity-listing
+                v-else
+                class="fk-faq-tag-list__grid"
+                detail-route="fk.faq.tag.detail"
+                identifier="fk-faq-tag-list"
+                :is-loading="isLoading"
+                :columns="tagColumns"
+                :repository="tagRepository"
+                :data-source="tags"
+                :criteria-limit="limit"
+                :sort-by="currentSortBy"
+                :sort-direction="sortDirection"
+                :disable-data-fetching="true"
+                :allow-inline-edit="true"
+                @update-records="updateTotal"
+                @page-change="onPageChange"
+                @column-sort="onSortColumn"
+            />
+        </div>
+        {% endblock %}
+    </template>
+
+</sw-page>
+{% endblock %}
